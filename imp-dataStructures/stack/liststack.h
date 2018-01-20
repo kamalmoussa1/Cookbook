@@ -24,8 +24,8 @@ namespace IMP
     void push(int item);
     int  pop();
     int  peek();
-    bool isEmpty();
     int  size(); 
+    bool isEmpty();
     void clearStack();
   };
 }
