@@ -16,7 +16,7 @@ int main()
   a.add(1);
 
   a.print();  // print all data
-
+/*
   a.add(14,2); // add 14 at index 2
 
   a.print();
@@ -28,6 +28,11 @@ int main()
   a.remove(a.find(55)); // find 55 and remove it. 
 
   a.print();
+*/
+
+  cout << "Size: " << a.size() << endl; // size of the list i.e no. of items 
+
+  a.clearList();
 
   cout << "Size: " << a.size() << endl; // size of the list i.e no. of items 
 

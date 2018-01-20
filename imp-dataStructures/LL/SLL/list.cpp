@@ -182,13 +182,15 @@ namespace IMP
       temp = this->head;
       head = this->head->next;
       delete temp;
+      len--;
     }
-    delete head;
   }
 
   List::~List()
   {
     clearList();
+    delete head;
+
   }
 
 }

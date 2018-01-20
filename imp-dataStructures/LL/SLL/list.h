@@ -13,7 +13,6 @@ namespace IMP
 
     node*  head;   // keep track of list's head 
     int len = 0; 
-    void clearList();
 
   public:
     List();
@@ -25,6 +24,8 @@ namespace IMP
     int  find(int item); // return pos
     int  size();
     void print();
+    void clearList();
+
 
   };
 
