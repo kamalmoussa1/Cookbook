@@ -6,15 +6,19 @@ using namespace std;
 
 int main()
 {
-  IMP::AStack<5> s; // array-based stack
-  IMP::Stack sList; // List-based  stack 
+  IMP::AStack<4> s; // array-based stack
+  //IMP::Stack s; // List-based  stack 
 
-
-  s.push(1);
+try
+{
+  // s.peek();  // no data- Empty stack thrown
+  s.push(1); 
   s.push(2);
   s.push(3);
   s.push(4);
 
+  // stack overflow 
+  
   cout << "Size: " << s.size() << endl;
 
   cout << "Peek: " << s.peek() << endl; // top element 
@@ -27,13 +31,18 @@ int main()
   cout << s.pop() << endl;
   cout << s.pop() << endl;
 
-  cout << s.pop() << endl;  // pop from empty stack- return -1 for now 
+  cout << s.pop() << endl;  // pop from empty stack- ERROR thrown 
 
 
  // s.clearStack(); // delete all elements 
 
   cout << "Size: " << s.size()    << endl;
- 
+
+}
+catch (const CError & e)
+{
+  std::cout << e.what() << std::endl;
+}
 
 
   return 0;

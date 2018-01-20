@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "liststack.h"
-
+#include "error.h"
 
 namespace IMP
 {
@@ -34,18 +34,27 @@ namespace IMP
 
   int Stack::peek()
   {
-    return this->top->item;
+    if(isEmpty())
+      throw CError("Empty Stack"); 
+    else 
+      return this->top->item;
   }
 
   int Stack::pop()
   {
+    int item; 
     node* currentNode = new node;
     currentNode = this->top;
 
-    this->top = this->top->next;
-    len--;
+    if(isEmpty()) 
+      throw CError("Empty Stack");
+    else
+    {
+      this->top = this->top->next;
+      len--;
 
-    int item = currentNode->item;
+      item = currentNode->item;
+    }
 
     delete currentNode;
 

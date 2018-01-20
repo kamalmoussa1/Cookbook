@@ -5,12 +5,13 @@
 #ifndef ARRAYSTACK_H
 #define ARRAYSTACK_H
 
+#include "error.h"
 
 namespace IMP
 {
   template<int N>
   class AStack
-  {ا   
+  {
     int arr[N]= {};
     int top = -1;
 
@@ -18,16 +19,30 @@ namespace IMP
     AStack(){}
     void push(int item)
     {
-      if(top == size()) {std::cout << "Overflow\n"; return; }
-      else{ top = top+1; arr[top]= item;}
+      if(top == N-1)  throw CError("Stack overflow");
+      else
+      {
+       top = top+1; 
+       arr[top] = item;
+      }
     }
+    
     int pop()
     {
-      if(isEmpty()){std::cout << "Empty: "; return -1;} 
-      else { return arr[top--];}
+      if(isEmpty())
+        throw CError("Empty stack");
+      else
+        return arr[top--];
     }
 
-    int peek()        { return arr[top];  }
+    int peek()
+    {
+      if(isEmpty())
+        throw CError("Empty stack");
+      else
+       return arr[top];  
+    }
+
     int size()        { return top+1;     }
     bool isEmpty()    { return top == -1; }
     void clearStack() { top = -1;         }

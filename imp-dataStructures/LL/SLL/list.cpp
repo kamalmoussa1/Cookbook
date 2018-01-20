@@ -1,4 +1,5 @@
 #include "list.h"
+#include "error.h"
 
 #include <iostream>
 
@@ -106,17 +107,15 @@ namespace IMP
     if(prevNode->next == NULL)
     {
       // throw exception(better):: out of bounds 
-      std::cout << "Index out of bounds, list size is " << size() << '\n';
-      return;
+      throw CError("Out of bounds, item not found");
     }
-
-    toRemoveNode = prevNode->next;
-
-    prevNode->next = toRemoveNode->next;
-    len--; 
-
+    else
+    {
+      toRemoveNode = prevNode->next;
+      prevNode->next = toRemoveNode->next;
+      len--; 
+    }
     delete toRemoveNode;
-
   }
 
 /**
