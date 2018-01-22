@@ -56,6 +56,25 @@ std::string reverse_str_4(std::string str)
   return str;
 }
 
+// traverse half of the string - n/2 
+std::string reverse_str_5(std::string str)
+{
+  int i = 0;
+  int j = str.length() -1;
+
+  while(i<=j)
+  {
+    //std::swap(str[i], str[j]);
+    // OR
+    char t = str[i];
+    str[i] = str[j];
+    str[j] = t;
+    i++;
+    j--;
+  }
+  return str;
+}
+
 using namespace std;
 int main()
 {
@@ -65,6 +84,7 @@ int main()
   cout << reverse_str_2(ss) << endl;
   cout << reverse_str_3(ss) << endl;
   cout << reverse_str_4(ss) << endl;
+  cout << reverse_str_5(ss) << endl;
 
   return 0;
 }
