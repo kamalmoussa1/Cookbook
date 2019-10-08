@@ -1,0 +1,5 @@
+build*
+assimp/
+*/.vscod
+*.txt.user
+*/.vscode/*
